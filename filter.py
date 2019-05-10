@@ -1,15 +1,10 @@
+import sympy
+import sys
+import time
 
-def read_large_file(file_handler, block_size=10000):
-    block = []
-    for line in file_handler:
-        block.append(line)
-        if len(block) == block_size:
-            yield block
-            block = []            
-    # yield the last block
-    if block:
-        yield block
-
-with open(path) as file_handler:
-    for block in read_large_file(file_handler):
-        print(block)
+for line in sys.stdin:
+    fields = line.split(',')
+    first_field = int(fields[0])
+    if(first_field < 7500 and sympy.isprime(first_field)):
+        sys.stdout.write(str(line))
+        time.sleep(1)
