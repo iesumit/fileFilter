@@ -7,4 +7,3 @@ for line in sys.stdin:
     first_field = int(fields[0])
     if(first_field < 7500 and sympy.isprime(first_field)):
         sys.stdout.write(str(line))
-    time.sleep(1)
